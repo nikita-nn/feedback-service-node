@@ -1,7 +1,7 @@
 import express from "express";
 import { healthCheck } from "./service/system/healthCheck";
-import {initMiddlewares} from "./service/init/initMiddlewares";
-import {initRouting} from "./service/init/initRouting";
+import { initMiddlewares } from "./service/init/initMiddlewares";
+import { initRouting } from "./service/init/initRouting";
 
 const feedBackService = express();
 
