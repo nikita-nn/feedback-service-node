@@ -6,7 +6,7 @@ import {
   timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
-import { Users } from "./userSchema";
+import { Users } from "./usersSchema";
 import { currentCategories, currentStatuses } from "../../src/settings";
 
 export const CategoryEnum = pgEnum(
@@ -26,8 +26,8 @@ export const Posts = pgTable("posts", {
   category: CategoryEnum("category"),
   status: StatusEnum("status"),
   author_id: integer("author_id")
-    .references(() => Users.id)
+    .references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" })
     .notNull(),
   createdAt: timestamp().defaultNow().notNull(),
-  updatedAt: timestamp().defaultNow().notNull(),
+  updatedAt: timestamp(),
 });

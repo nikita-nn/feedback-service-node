@@ -10,6 +10,7 @@ import userRouter from "./routes/userRouter";
 import postsRouter from "./routes/postsRouter";
 import categoriesRouter from "./routes/categoriesRouter";
 import statusesRouter from "./routes/statusesRouter";
+import { generateMockPosts } from "./service/mock/generateMockPosts";
 
 const feedBackService = express();
 

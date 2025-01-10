@@ -23,6 +23,7 @@ export const currentCategories = [
   "Functional",
   "Bug",
   "UI",
+  "New",
   "Performance",
   "Default",
 ];

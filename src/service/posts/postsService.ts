@@ -1,6 +1,6 @@
 import { allowedUpdatePostFields } from "../../settings";
 import { db } from "../../../db/db";
-import { Posts } from "../../../db/schema/postSchema";
+import { Posts } from "../../../db/schema/postsSchema";
 import { eq } from "drizzle-orm";
 import { PostValidationResponse } from "../../types/postsTypes";
 

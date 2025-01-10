@@ -6,6 +6,7 @@ import {
 import { buildRes } from "../../service/system/buildRes";
 import jwt from "jsonwebtoken";
 import { addTokenToRedis } from "../../service/auth/tokenService";
+import logMessage from "../../service/system/logger";
 
 export const loginController = async (req: Request, res: Response) => {
   const { email, password } = req.body;

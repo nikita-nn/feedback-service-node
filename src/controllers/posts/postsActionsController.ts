@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { buildRes } from "../../service/system/buildRes";
 import { db } from "../../../db/db";
-import { Posts } from "../../../db/schema/postSchema";
+import { Posts } from "../../../db/schema/postsSchema";
 import { eq } from "drizzle-orm";
 import { currentCategories, currentStatuses } from "../../settings";
 import {
@@ -65,7 +65,10 @@ export const updatePostController = async (req: Request, res: Response) => {
   const validationDataResult = validateUpdatePostData(updatePostData);
 
   if (validationDataResult) {
-    await db.update(Posts).set(updatePostData).where(eq(Posts.id, postId));
+    await db
+      .update(Posts)
+      .set({ ...updatePostData, updatedAt: new Date() })
+      .where(eq(Posts.id, postId));
     return buildRes(200, "Post updated successfully", res);
   } else {
     return buildRes(400, "Incorrect data", res);

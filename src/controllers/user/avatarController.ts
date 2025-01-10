@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Users } from "../../../db/schema/userSchema";
+import { Users } from "../../../db/schema/usersSchema";
 import { db } from "../../../db/db";
 import { eq } from "drizzle-orm";
 import { buildRes } from "../../service/system/buildRes";

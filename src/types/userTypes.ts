@@ -1,4 +1,4 @@
-import { Users } from "../../db/schema/userSchema";
+import { Users } from "../../db/schema/usersSchema";
 
 export interface UserTokenData {
   email: string;

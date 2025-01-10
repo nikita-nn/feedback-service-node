@@ -1,10 +1,11 @@
 import redis from "../../../db/redis";
 import logMessage from "../system/logger";
+import ms from "ms";
 
 export const blacklistToken = async (token: string) => {
   const ttl = process.env.JWT_LIFETIME || "96h";
   try {
-    await redis.set(token, "blacklist", "EX", ttl);
+    await redis.set(`blacklist:${token}`, "blacklist", "EX", ms(ttl) / 1000);
   } catch (err) {
     logMessage(
       `Blacklisting token error: ${err.message}`,
@@ -17,7 +18,7 @@ export const blacklistToken = async (token: string) => {
 export const addTokenToRedis = async (token: string) => {
   const ttl = process.env.JWT_LIFETIME || "96h";
   try {
-    await redis.set(token, "clear", "EX", ttl);
+    await redis.set(token, "clear", "EX", ms(ttl) / 1000);
   } catch (err) {
     logMessage(`Add token error: ${err.message}`, "error", "AUTH + REDIS");
   }
