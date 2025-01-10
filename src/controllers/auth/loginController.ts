@@ -7,7 +7,7 @@ import { buildRes } from "../../service/system/buildRes";
 import jwt from "jsonwebtoken";
 import { addTokenToRedis } from "../../service/auth/tokenService";
 
-export const LoginController = async (req: Request, res: Response) => {
+export const loginController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   const userData = await checkExistingUser(email);

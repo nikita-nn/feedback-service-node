@@ -7,7 +7,7 @@ import {
 import { db } from "../../../db/db";
 import { Users } from "../../../db/schema/userSchema";
 
-export const RegisterController = async (req: Request, res: Response) => {
+export const registerController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   if (!email || !password) {

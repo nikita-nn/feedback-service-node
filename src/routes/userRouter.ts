@@ -1,9 +1,12 @@
 import { Router } from "express";
 import { authMiddleware } from "../middlewares/authMiddleware";
-import { GetMeController } from "../controllers/user/getMeController";
-import { SetAvatarController } from "../controllers/user/setAvatarController";
+import { getMeController } from "../controllers/user/getMeController";
+import { setAvatarController } from "../controllers/user/setAvatarController";
 
-export const userRouter = Router();
+const userRouter = Router();
 
-userRouter.get("/me", authMiddleware, GetMeController);
-userRouter.post("/avatar", authMiddleware, SetAvatarController);
+userRouter.get("/me", authMiddleware, getMeController);
+userRouter.post("/avatar", authMiddleware, setAvatarController);
+
+export default userRouter;
+

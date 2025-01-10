@@ -1,15 +1,15 @@
 import { Router } from "express";
-import { LoginController } from "../controllers/auth/loginController";
-import { RegisterController } from "../controllers/auth/registerController";
-import { LogoutController } from "../controllers/auth/logoutController";
+import { loginController } from "../controllers/auth/loginController";
+import { registerController } from "../controllers/auth/registerController";
+import { logoutController } from "../controllers/auth/logoutController";
 import { authMiddleware } from "../middlewares/authMiddleware";
 
 const authRouter = Router();
 
-authRouter.post("/login", LoginController);
+authRouter.post("/login", loginController);
 
-authRouter.post("/register", RegisterController);
+authRouter.post("/register", registerController);
 
-authRouter.post("/logout", authMiddleware, LogoutController);
+authRouter.post("/logout", authMiddleware, logoutController);
 
 export default authRouter;
