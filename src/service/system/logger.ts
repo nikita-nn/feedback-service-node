@@ -5,12 +5,12 @@ type Role = "info" | "warning" | "error" | "success";
 const maxRoleLength = 8;
 const separator = " | ";
 
-function formatRole(role: string): string {
+const formatRole = (role: string) => {
   const upperRole = role.toUpperCase();
   return `[${upperRole}]`.padEnd(maxRoleLength, " ");
-}
+};
 
-function logMessage(message: string, role: Role, source: string = "") {
+const logMessage = (message: string, role: Role, source: string = "") => {
   const formattedRole = formatRole(role);
   const sourcePrefix = source
     ? `[${source}]`.padEnd(maxRoleLength + 1, " ")
@@ -34,6 +34,6 @@ function logMessage(message: string, role: Role, source: string = "") {
     default:
       console.log(message);
   }
-}
+};
 
 export default logMessage;

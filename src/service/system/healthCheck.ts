@@ -3,7 +3,7 @@ import { currentEnvVars } from "../../settings";
 import logMessage from "./logger";
 import { db } from "../../../db/db";
 
-function checkEnv() {
+const checkEnv = () => {
   currentEnvVars.forEach((envVar) => {
     if (!process.env[envVar]) {
       logMessage("Environment error", "error", "SERVICE");
@@ -11,9 +11,9 @@ function checkEnv() {
     }
   });
   logMessage("Environment correct", "success", "SERVICE");
-}
+};
 
-async function checkDB() {
+const checkDB = async () => {
   try {
     await db.execute(sql`SELECT 1`);
     logMessage("Database connection successful", "success", "DB");
@@ -21,9 +21,9 @@ async function checkDB() {
     logMessage(`Database connection ${error}`, "error", "DB");
     process.exit(1);
   }
-}
+};
 
-export async function healthCheck() {
+export const healthCheck = async () => {
   checkEnv();
   await checkDB();
   logMessage(
@@ -31,4 +31,4 @@ export async function healthCheck() {
     "success",
     "SERVICE",
   );
-}
+};
