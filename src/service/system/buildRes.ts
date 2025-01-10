@@ -12,7 +12,7 @@ export const buildRes = (
 
   if (status <= 204) {
     if (typeof data == "object") {
-      toSend.data = JSON.stringify(data);
+      toSend.data = data;
     } else {
       toSend.message = data;
     }

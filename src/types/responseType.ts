@@ -5,6 +5,6 @@ export enum ResponseStatus {
 
 export interface ResponseType {
   status: ResponseStatus;
-  data?: string;
+  data?: string | object;
   message?: string;
 }
