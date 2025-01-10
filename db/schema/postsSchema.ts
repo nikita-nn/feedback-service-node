@@ -28,6 +28,6 @@ export const Posts = pgTable("posts", {
   author_id: integer("author_id")
     .references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" })
     .notNull(),
-  createdAt: timestamp().defaultNow().notNull(),
-  updatedAt: timestamp(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').$onUpdate(() => new Date()),
 });

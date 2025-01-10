@@ -5,4 +5,4 @@ export type PostValidationResponse = {
   post: typeof Posts.$inferSelect | null;
 };
 
-export type SortBy = "date" | "votes";
+export type SortByType = "date" | "votes" | undefined;

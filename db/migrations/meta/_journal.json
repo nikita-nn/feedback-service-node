@@ -57,6 +57,20 @@
       "when": 1736539711505,
       "tag": "0007_furry_sage",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1736542369335,
+      "tag": "0008_blue_patch",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1736542382951,
+      "tag": "0009_minor_rage",
+      "breakpoints": true
     }
   ]
 }
