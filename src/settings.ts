@@ -17,3 +17,20 @@ export const currentEnvVars = [
   "JWT_SECRET",
   "REDIS_PASSWORD",
 ];
+
+export const currentCategories = [
+  "Status",
+  "Functional",
+  "Bug",
+  "UI",
+  "Performance",
+  "Default",
+];
+
+export const currentStatuses = [
+  "Idea",
+  "Planned",
+  "In work",
+  "Completed",
+  "Started",
+];
