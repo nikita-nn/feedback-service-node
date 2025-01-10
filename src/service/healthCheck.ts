@@ -1,7 +1,7 @@
 import logMessage from "./logger";
-import { db } from "../db/db";
 import { sql } from "drizzle-orm";
 import { currentEnvVars } from "../settings";
+import { db } from "../../db/db";
 
 function checkEnv() {
   currentEnvVars.forEach((envVar) => {
@@ -26,5 +26,9 @@ async function checkDB() {
 export async function healthCheck() {
   checkEnv();
   await checkDB();
-  logMessage(`Service started on port ${process.env.PORT}`, "success", "SERVICE");
+  logMessage(
+    `Service started on port ${process.env.PORT}`,
+    "success",
+    "SERVICE",
+  );
 }
