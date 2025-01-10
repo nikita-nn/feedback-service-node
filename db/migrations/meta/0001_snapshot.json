@@ -69,12 +69,8 @@
           "name": "posts_author_id_users_id_fk",
           "tableFrom": "posts",
           "tableTo": "users",
-          "columnsFrom": [
-            "author_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["author_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -122,9 +118,7 @@
         "users_email_unique": {
           "name": "users_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       },
       "policies": {},
@@ -160,12 +154,8 @@
           "name": "votes_postId_posts_id_fk",
           "tableFrom": "votes",
           "tableTo": "posts",
-          "columnsFrom": [
-            "postId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["postId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -173,12 +163,8 @@
           "name": "votes_userId_users_id_fk",
           "tableFrom": "votes",
           "tableTo": "users",
-          "columnsFrom": [
-            "userId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["userId"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -194,25 +180,12 @@
     "public.categoryEnum": {
       "name": "categoryEnum",
       "schema": "public",
-      "values": [
-        "Status",
-        "Functional",
-        "Bug",
-        "UI",
-        "Performance",
-        "Default"
-      ]
+      "values": ["Status", "Functional", "Bug", "UI", "Performance", "Default"]
     },
     "public.statusEnum": {
       "name": "statusEnum",
       "schema": "public",
-      "values": [
-        "Idea",
-        "Planned",
-        "In work",
-        "Completed",
-        "Started"
-      ]
+      "values": ["Idea", "Planned", "In work", "Completed", "Started"]
     }
   },
   "schemas": {},

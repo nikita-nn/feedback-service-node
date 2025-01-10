@@ -1,7 +1,7 @@
-import logMessage from "./logger";
 import { sql } from "drizzle-orm";
-import { currentEnvVars } from "../settings";
-import { db } from "../../db/db";
+import { currentEnvVars } from "../../settings";
+import logMessage from "./logger";
+import { db } from "../../../db/db";
 
 function checkEnv() {
   currentEnvVars.forEach((envVar) => {

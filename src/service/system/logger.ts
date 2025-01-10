@@ -2,7 +2,7 @@ import chalk from "chalk";
 
 type Role = "info" | "warning" | "error" | "success";
 
-const maxRoleLength = 5;
+const maxRoleLength = 8;
 const separator = " | ";
 
 function formatRole(role: string): string {
