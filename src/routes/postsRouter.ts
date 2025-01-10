@@ -9,6 +9,7 @@ import {
   getSinglePostController,
 } from "../controllers/posts/postsController";
 import { authMiddleware } from "../middlewares/authMiddleware";
+import { votePostController } from "../controllers/posts/votePostController";
 
 const postsRouter = Router();
 
@@ -20,5 +21,7 @@ postsRouter.post("/", createPostController);
 postsRouter.patch("/:id", updatePostController);
 postsRouter.delete("/:id", deletePostController);
 postsRouter.get("/:id", getSinglePostController);
+
+postsRouter.post("/:id/vote/", votePostController);
 
 export default postsRouter;

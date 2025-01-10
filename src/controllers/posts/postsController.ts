@@ -4,6 +4,7 @@ import { Posts } from "../../../db/schema/postsSchema";
 import { buildRes } from "../../service/system/buildRes";
 import { and, eq } from "drizzle-orm";
 import { currentCategories, currentStatuses } from "../../settings";
+import { validatePostInfo } from "../../service/posts/postsService";
 
 export const getPostsController = async (req: Request, res: Response) => {
   const page = Number(req.query.page) || 1;
@@ -36,21 +37,17 @@ export const getPostsController = async (req: Request, res: Response) => {
 };
 
 export const getSinglePostController = async (req: Request, res: Response) => {
-  const postId = req.params.id;
+  const postId = Number(req.params.id);
 
   if (!postId) {
-    return buildRes(400, "No posts id specified", res);
+    return buildRes(400, "No post id specified", res);
   }
 
-  const post = await db
-    .select()
-    .from(Posts)
-    .where(eq(Posts.id, Number(postId)))
-    .then((posts) => posts[0]);
+  const validatedPost = await validatePostInfo(postId);
 
-  if (!post) {
+  if (!validatedPost.exists) {
     return buildRes(404, "Post not found", res);
   }
 
-  return buildRes(200, post, res);
+  return buildRes(200, validatedPost.post!, res);
 };

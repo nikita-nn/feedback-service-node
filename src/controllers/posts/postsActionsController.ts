@@ -19,7 +19,7 @@ export const deletePostController = async (req: Request, res: Response) => {
   const validatedPost = await validatePostInfo(postId);
 
   if (!validatedPost.exists) {
-    return buildRes(404, "Post does not exists", res);
+    return buildRes(404, "Post does not exist", res);
   }
 
   await db.delete(Posts).where(eq(Posts.id, Number(postId)));
@@ -59,7 +59,7 @@ export const updatePostController = async (req: Request, res: Response) => {
   const validatedPost = await validatePostInfo(postId);
 
   if (!validatedPost.exists) {
-    return buildRes(404, "Post does not exists", res);
+    return buildRes(404, "Post does not exist", res);
   }
 
   const validationDataResult = validateUpdatePostData(updatePostData);
