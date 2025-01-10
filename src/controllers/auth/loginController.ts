@@ -5,6 +5,7 @@ import {
 } from "../../service/auth/authService";
 import { buildRes } from "../../service/system/buildRes";
 import jwt from "jsonwebtoken";
+import { addTokenToRedis } from "../../service/auth/tokenService";
 
 export const LoginController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -22,10 +23,10 @@ export const LoginController = async (req: Request, res: Response) => {
   }
 
   const token = jwt.sign({ email: email }, process.env.JWT_SECRET as string, {
-    expiresIn: "96h",
+    expiresIn: process.env.JWT_LIFETIME || "96h",
   });
 
   res.cookie("token", token, { httpOnly: true });
-
+  await addTokenToRedis(token);
   return buildRes(200, { token: token }, res);
 };

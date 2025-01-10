@@ -39,7 +39,7 @@ export const checkJWTPayload = async (
 
   const userData = await checkExistingUser(decodedData.email);
 
-  const now = Date.now() / 1000;
+  const now = Date.now() / 1000; // JWT exp and iss is in seconds
 
   if (decodedData.exp < now || decodedData.iat > now || !userData.exists) {
     return { status: false, data: null };

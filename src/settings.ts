@@ -15,4 +15,5 @@ export const currentEnvVars = [
   "PORT",
   "FRONTEND_URL",
   "JWT_SECRET",
+  "REDIS_PASSWORD",
 ];
