@@ -1,12 +1,20 @@
 import express from "express";
 import { healthCheck } from "./service/system/healthCheck";
-import { initMiddlewares } from "./service/init/initMiddlewares";
-import { initRouting } from "./service/init/initRouting";
+
+import helmet from "helmet";
+import compression from "compression";
+import cors from "cors";
+import { corsOptions } from "./settings";
+import authRouter from "./routes/authRouter";
 
 const feedBackService = express();
 
-initMiddlewares(feedBackService);
-initRouting(feedBackService);
+feedBackService.use(helmet());
+feedBackService.use(express.json());
+feedBackService.use(compression());
+feedBackService.use(cors(corsOptions));
+
+feedBackService.use("/auth", authRouter);
 
 feedBackService.listen(process.env.PORT, async () => {
   await healthCheck();

@@ -14,4 +14,5 @@ export const currentEnvVars = [
   "POSTGRES_USER",
   "PORT",
   "FRONTEND_URL",
+  "JWT_SECRET",
 ];

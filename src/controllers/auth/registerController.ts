@@ -11,7 +11,7 @@ export const RegisterController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return buildRes(400, "Username or password is missing", res);
+    return buildRes(400, "E-mail or password is missing", res);
   }
 
   const userData = await checkExistingUser(email);
@@ -23,5 +23,5 @@ export const RegisterController = async (req: Request, res: Response) => {
   await db
     .insert(Users)
     .values({ email: email, password: hashPassword(password) });
-  buildRes(200, "User successfully registered", res);
+  return buildRes(200, "User successfully registered", res);
 };
