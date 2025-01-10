@@ -2,7 +2,7 @@ import { db } from "../../../db/db";
 import { Users } from "../../../db/schema/userSchema";
 import { eq } from "drizzle-orm";
 import CryptoJS from "crypto-js";
-import {UserTokenData, UserValidationResponse} from "../../types/userTypes";
+import { UserTokenData, UserValidationResponse } from "../../types/userTypes";
 import jwt from "jsonwebtoken";
 
 export const checkExistingUser = async (

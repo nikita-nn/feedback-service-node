@@ -1,4 +1,4 @@
-import {Users} from "../../db/schema/userSchema";
+import { Users } from "../../db/schema/userSchema";
 
 export interface UserTokenData {
   email: string;
@@ -6,4 +6,7 @@ export interface UserTokenData {
   exp: number; // UNIX timestamp
 }
 
-export type UserValidationResponse = { exists: boolean; user: typeof Users.$inferSelect | null }
+export type UserValidationResponse = {
+  exists: boolean;
+  user: typeof Users.$inferSelect | null;
+};

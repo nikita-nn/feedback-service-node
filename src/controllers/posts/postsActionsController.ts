@@ -4,7 +4,10 @@ import { db } from "../../../db/db";
 import { Posts } from "../../../db/schema/postSchema";
 import { eq } from "drizzle-orm";
 import { currentCategories, currentStatuses } from "../../settings";
-import {validatePostInfo, validateUpdatePostData} from "../../service/posts/postsService";
+import {
+  validatePostInfo,
+  validateUpdatePostData,
+} from "../../service/posts/postsService";
 
 export const deletePostController = async (req: Request, res: Response) => {
   const postId = Number(req.params.id);
@@ -13,9 +16,9 @@ export const deletePostController = async (req: Request, res: Response) => {
     return buildRes(400, "No post id specified", res);
   }
 
-  const validatedPost = await validatePostInfo(postId)
+  const validatedPost = await validatePostInfo(postId);
 
-  if(!validatedPost.exists) {
+  if (!validatedPost.exists) {
     return buildRes(404, "Post does not exists", res);
   }
 
@@ -55,7 +58,7 @@ export const updatePostController = async (req: Request, res: Response) => {
 
   const validatedPost = await validatePostInfo(postId);
 
-  if(!validatedPost.exists) {
+  if (!validatedPost.exists) {
     return buildRes(404, "Post does not exists", res);
   }
 
