@@ -34,3 +34,10 @@ export const currentStatuses = [
   "Completed",
   "Started",
 ];
+
+export const allowedUpdatePostFields = [
+  "title",
+  "description",
+  "category",
+  "status",
+];

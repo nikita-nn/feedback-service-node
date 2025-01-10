@@ -19,7 +19,8 @@ export const getSinglePostController = async (req: Request, res: Response) => {
   const post = await db
     .select()
     .from(Posts)
-    .where(eq(Posts.id, Number(postId)));
+    .where(eq(Posts.id, Number(postId)))
+    .then((posts) => posts[0]);
 
   if (!post) {
     return buildRes(404, "Post not found", res);
