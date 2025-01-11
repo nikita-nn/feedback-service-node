@@ -21,7 +21,13 @@ https://github.com/nikita-nn/feedback-service-node.git
 bun install
 ```
 
-3. Run script **service:dev**
+3. Apply all migrations
+
+```bash
+bun run db:migrate
+```
+
+4. Run script **service:dev**
 
 ```bash
 bun run service:dev
@@ -35,7 +41,13 @@ bun run service:dev
 https://github.com/nikita-nn/feedback-service-node.git
 ```
 
-2. Deploy app using docker
+2. Apply all migrations
+
+```bash
+bun run db:migrate
+```
+
+3. Deploy app using docker
 
 ```bash
 docker-compose up

@@ -4,8 +4,8 @@ import { dbConnectionString } from "../settings";
 
 export default defineConfig({
   dialect: "postgresql",
-  schema: "./db/schema",
-  out: "./db/migrations",
+  schema: "./src/db/schema",
+  out: "./src/db/migrations",
   dbCredentials: { url: dbConnectionString! },
   verbose: true,
   strict: true,
