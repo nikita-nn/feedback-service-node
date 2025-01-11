@@ -6,6 +6,6 @@ import { setAvatarController } from "../controllers/user/avatarController";
 const userRouter = Router();
 
 userRouter.get("/me", authMiddleware, getMeController);
-userRouter.post("/avatar", authMiddleware, setAvatarController);
+userRouter.post("/set_avatar", authMiddleware, setAvatarController);
 
 export default userRouter;

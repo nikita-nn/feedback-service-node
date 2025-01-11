@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { buildRes } from "../../service/system/buildRes";
 import { validatePostInfo } from "../../service/posts/postsService";
-import { db } from "../../../db/db";
-import { Votes } from "../../../db/schema/votesSchema";
+import { db } from "../../db/db";
+import { Votes } from "../../db/schema/votesSchema";
 import { validateUniqueVote } from "../../service/votes/votesService";
 
 export const votePostController = async (req: Request, res: Response) => {

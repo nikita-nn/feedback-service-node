@@ -1,5 +1,5 @@
-import { db } from "../../../db/db";
-import { Users } from "../../../db/schema/usersSchema";
+import { db } from "../../db/db";
+import { Users } from "../../db/schema/usersSchema";
 import { eq } from "drizzle-orm";
 import CryptoJS from "crypto-js";
 import { UserTokenData, UserValidationResponse } from "../../types/userTypes";

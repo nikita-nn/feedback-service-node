@@ -1,8 +1,8 @@
 import { sql } from "drizzle-orm";
 import { currentEnvVars } from "../../settings";
 import logMessage from "./logger";
-import { db } from "../../../db/db";
-import redis from "../../../db/redis";
+import { db } from "../../db/db";
+import redis from "../../db/redis";
 
 const checkRedis = async () => {
   try {

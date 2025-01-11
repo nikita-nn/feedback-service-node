@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { buildRes } from "../../service/system/buildRes";
-import { db } from "../../../db/db";
-import { Posts } from "../../../db/schema/postsSchema";
+import { db } from "../../db/db";
+import { Posts } from "../../db/schema/postsSchema";
 import { eq } from "drizzle-orm";
 import { currentCategories, currentStatuses } from "../../settings";
 import {

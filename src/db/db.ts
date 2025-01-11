@@ -1,6 +1,7 @@
 import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
-import { dbConnectionString } from "../src/settings";
+import pg from "pg";
+const { Pool } = pg;
+import { dbConnectionString } from "../settings";
 
 const pool = new Pool({
   connectionString: dbConnectionString,

@@ -18,11 +18,11 @@ feedBackService.use(express.json());
 feedBackService.use(compression());
 feedBackService.use(cors(corsOptions));
 
-feedBackService.use("/auth", authRouter);
-feedBackService.use("/user", userRouter);
-feedBackService.use("/posts", postsRouter);
-feedBackService.use("/categories", categoriesRouter);
-feedBackService.use("/statuses", statusesRouter);
+feedBackService.use("/api/v1/auth", authRouter);
+feedBackService.use("/api/v1/user", userRouter);
+feedBackService.use("/api/v1/posts", postsRouter);
+feedBackService.use("/api/v1/categories", categoriesRouter);
+feedBackService.use("/api/v1/statuses", statusesRouter);
 
 feedBackService.listen(process.env.PORT, async () => {
   await healthCheck();

@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-export const dbConnectionString = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@localhost:${process.env.POSTGRES_PORT || 5432}/${process.env.POSTGRES_DB}`;
+export const dbConnectionString = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST || "localhost"}:${process.env.POSTGRES_PORT || 5432}/${process.env.POSTGRES_DB}`;
 
 export const corsOptions = {
   origin: process.env.FRONTEND_URL,

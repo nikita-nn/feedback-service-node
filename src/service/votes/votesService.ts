@@ -1,5 +1,5 @@
-import { db } from "../../../db/db";
-import { Votes } from "../../../db/schema/votesSchema";
+import { db } from "../../db/db";
+import { Votes } from "../../db/schema/votesSchema";
 import { and, eq } from "drizzle-orm";
 
 export const validateUniqueVote = async (userId: number, postId: number) => {

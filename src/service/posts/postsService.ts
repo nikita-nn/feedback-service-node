@@ -1,7 +1,7 @@
 import { allowedUpdatePostFields } from "../../settings";
-import { db } from "../../../db/db";
-import { Posts } from "../../../db/schema/postsSchema";
-import {asc, desc, eq, sql} from "drizzle-orm";
+import { db } from "../../db/db";
+import { Posts } from "../../db/schema/postsSchema";
+import { asc, desc, eq, sql } from "drizzle-orm";
 import { PostValidationResponse } from "../../types/postsTypes";
 
 export const validateUpdatePostData = (updatePostData: string) => {
@@ -27,13 +27,15 @@ export const validatePostInfo = async (
   }
 };
 
-export const correctlyOrderPosts = (sortBy:string | undefined) =>{
+export const correctlyOrderPosts = (sortBy: string | undefined) => {
   switch (sortBy) {
     case "date":
-     return desc(Posts.createdAt)
+      return desc(Posts.createdAt);
     case "votes":
-      return desc(sql<number>`(select count(*) from votes where "postId" = ${Posts.id})`)
+      return desc(
+        sql<number>`(select count(*) from votes where "postId" = ${Posts.id})`,
+      );
     default:
-      return asc(Posts.id)
+      return asc(Posts.id);
   }
-}
+};

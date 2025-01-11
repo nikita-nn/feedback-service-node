@@ -1,4 +1,4 @@
-import { Posts } from "../../db/schema/postsSchema";
+import { Posts } from "../db/schema/postsSchema";
 
 export type PostValidationResponse = {
   exists: boolean;

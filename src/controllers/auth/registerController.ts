@@ -4,8 +4,8 @@ import {
   checkExistingUser,
   hashPassword,
 } from "../../service/auth/authService";
-import { db } from "../../../db/db";
-import { Users } from "../../../db/schema/usersSchema";
+import { db } from "../../db/db";
+import { Users } from "../../db/schema/usersSchema";
 
 export const registerController = async (req: Request, res: Response) => {
   const { email, password } = req.body;

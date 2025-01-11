@@ -1,4 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="nikitaarkhipov"
+FROM oven/bun:latest
 
-ENTRYPOINT ["top", "-b"]
+COPY package.json ./
+COPY src ./
+
+RUN bun install
+
+RUN bun build ./server.ts --outdir ./build --target bun
+
+CMD ["bun", "./build/server.js"]
