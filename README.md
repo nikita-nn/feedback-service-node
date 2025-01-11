@@ -2,12 +2,13 @@
 
 ## User manual
 
-- [Deploy Development instance](#deploy-dev-instance)
-- [Deploy Production instance](#deploy-prod-instance)
+- [Deploy Development instance](#deploy-Development-instance)
+- [Deploy Production instance](#deploy-Production-instance)
+- [Application Infrastructure](#application-infrastructure)
 - [Environment variables](#environment-variables)
 - [API Documentation](#api-documentation)
 
-### Deploy dev instance
+### Deploy Development instance
 
 1. Clone repo:
 
@@ -33,7 +34,7 @@ bun run db:migrate
 bun run service:dev
 ```
 
-### Deploy prod instance
+### Deploy Production instance
 
 1. Clone repo:
 
@@ -52,6 +53,10 @@ bun run db:migrate
 ```bash
 docker-compose up
 ```
+
+### Application Infrastructure
+
+![App_Infrastructure](https://i.ibb.co/zN3QnBG/2025-01-11-21-34-22.png)
 
 ### Environment variables
 
