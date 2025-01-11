@@ -1,6 +1,18 @@
 version: "3.8"
 
 services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend_feedback
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"
+    depends_on:
+      - redis
+      - db
   redis:
     image: redis:alpine
     container_name: redis_feedback
